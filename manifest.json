@@ -1,0 +1,9 @@
+{
+    "id": "uw-rc-link-opener",
+    "name": "uW RC link opener",
+    "version": "0.0.1",
+    "description": "Handles uW rc links",
+    "author": "unfoldingword",
+    "authorUrl": "https://unfoldingword.org",
+    "isDesktopOnly": false
+}
