@@ -53,7 +53,7 @@ function __awaiter(thisArg, _arguments, P, generator) {
     });
 }
 
-class UwRcLinkPlugin extends obsidian.Plugin {
+class UwRcLinkOpener extends obsidian.Plugin {
     get profiles() {
         return Object.assign(Object.assign({}, this.presetProfiles), this.settings.custom);
     }
@@ -89,33 +89,5 @@ class PanicModal extends obsidian.Modal {
         contentEl.empty();
     }
 }
-class SettingTab extends obsidian.PluginSettingTab {
-    constructor(app, plugin) {
-        super(app, plugin);
-        this.plugin = plugin;
-        this._profileChangeHandler = obsidian.debounce((val) => __awaiter(this, void 0, void 0, function* () {
-            var _a, _b;
-            try {
-                const profiles = JSON.parse(val);
-                this.plugin.settings.custom = profiles;
-                yield this.plugin.saveSettings();
-                this._render();
-            }
-            catch (e) {
-                this.panic((_b = (_a = e.message) !== null && _a !== void 0 ? _a : e.toString()) !== null && _b !== void 0 ? _b : 'some error occurred in open-link-with');
-            }
-        }), 1500, true);
-    }
-    panic(msg) {
-        new PanicModal(this.app, msg).open();
-    }
-    _render() {
-        let { containerEl } = this;
-        containerEl.empty();
-    }
-    display() {
-        this._render();
-    }
-}
 
-module.exports = UwRcLinkPlugin;
+module.exports = UwRcLinkOpener;
