@@ -2,8 +2,6 @@ import { Plugin } from 'obsidian';
 
 export default class UwRcLinkOpener extends Plugin {
 	async onload() {
-		console.log('loading plugin');
-        
 		this.registerDomEvent(document, 'click', (evt: MouseEvent) => this.handleLinkClick(evt));
 	}
 
